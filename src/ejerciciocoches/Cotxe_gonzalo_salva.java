@@ -10,15 +10,15 @@ import java.util.Random;
 // extends: se utiliza para las subclases, se heredan los atributos y el constructor de la clase principal
 public class Cotxe_gonzalo_salva extends CocheAbstracto {
 
-    public Cotxe_gonzalo_salva(String marca, String modelo, TipoCanvio tipocanvio) {
-        super(marca, modelo, tipocanvio);
+    public Cotxe_gonzalo_salva(String marca, String modelo, TipoCanvio tipocanvio, EstadoMotorCoche estadomotor) {
+        super(marca, modelo, tipocanvio, estadomotor);
     }
 
     //override: sobreescribe los metodos de la clase interfazcoche.java
     @Override
     //En el constructor hay que especificar "throws Exception", para poder lanzar una excepción después
     public void arrancaMotor() throws Exception {
-        if (estadomotor != EstadoMotorCoche.EnMarcha) {
+        if (estadomotor == EstadoMotorCoche.EnMarcha) {
             this.estadomotor = EstadoMotorCoche.EnMarcha;//arrancamos el motor
             System.out.println("Motor arrancado");
         }else {
